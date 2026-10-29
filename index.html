@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adi Gabay</title>
+  <meta name="description" content="Publications by Adi Gabay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfbfa;
+      --text: #1d1d1f;
+      --muted: #6b6b70;
+      --border: #e4e4e2;
+      --accent: #b3261e;
+      --chip-bg: #f1f1ef;
+      --code-bg: #f4f4f2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161618;
+        --text: #ececec;
+        --muted: #9a9aa0;
+        --border: #2c2c30;
+        --accent: #ff7a6e;
+        --chip-bg: #232327;
+        --code-bg: #1e1e21;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 Inter, system-ui, -apple-system, sans-serif;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 16px 96px;
+    }
+    a { color: inherit; }
+
+    header h1 {
+      margin: 0;
+      font: 600 2.4rem/1.15 "Source Serif 4", Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+    .links {
+      display: flex;
+      gap: 18px;
+      margin-top: 14px;
+      font-size: 0.95rem;
+    }
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .links a:hover { color: var(--text); border-color: var(--text); }
+
+    h2 {
+      margin: 64px 0 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pub {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+    .pub-title {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .pub-title a { text-decoration: none; }
+    .pub-title a:hover { text-decoration: underline; }
+    .authors { margin: 6px 0 0; color: var(--muted); }
+    .authors .me { color: var(--text); font-weight: 500; }
+    .venue { margin: 2px 0 0; font-style: italic; color: var(--muted); }
+    .venue .tag {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .actions a, .actions button {
+      font: 500 0.82rem/1 Inter, system-ui, sans-serif;
+      padding: 7px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--chip-bg);
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .actions a:hover, .actions button:hover { border-color: var(--muted); }
+
+    pre.bibtex {
+      display: none;
+      margin: 14px 0 0;
+      padding: 14px 16px;
+      overflow-x: auto;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font: 0.8rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    pre.bibtex.open { display: block; }
+
+    footer {
+      margin-top: 64px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 520px) {
+      main { padding-top: 48px; }
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Adi Gabay</h1>
+      <nav class="links">
+        <a href="https://github.com/adigabay84">GitHub</a>
+      </nav>
+    </header>
+
+    <h2>Publications</h2>
+
+    <article class="pub">
+      <p class="pub-title">
+        <a href="https://aclanthology.org/2026.emnlp-main.2119/">Beyond Memorization: Distinguishing Between Pattern-Based and Epistemic Reasoning in LLMs Using Epistemic Puzzles</a>
+      </p>
+      <p class="authors"><span class="me">Adi Gabay</span>, Gabriel Stanovsky, Liat Peterfreund</p>
+      <p class="venue"><span class="tag">EMNLP 2026</span> &middot; Main Conference</p>
+      <div class="actions">
+        <a href="https://aclanthology.org/2026.emnlp-main.2119/">ACL</a>
+        <a href="https://aclanthology.org/2026.emnlp-main.2119.pdf">PDF</a>
+        <a href="https://arxiv.org/abs/2603.21350">arXiv</a>
+        <a href="https://github.com/adigabay84/del-puzzles-benchmark">Code</a>
+        <button type="button" data-bib="bib-gabay2026">BibTeX</button>
+      </div>
+<pre class="bibtex" id="bib-gabay2026">@inproceedings{gabay-etal-2026-beyond,
+    title = "Beyond Memorization: Distinguishing Between Pattern-Based and Epistemic Reasoning in {LLM}s Using Epistemic Puzzles",
+    author = "Gabay, Adi  and
+      Stanovsky, Gabriel  and
+      Peterfreund, Liat",
+    booktitle = "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing",
+    month = oct,
+    year = "2026",
+    address = "Budapest, Hungary",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.emnlp-main.2119/",
+    pages = "48199--48218"
+}</pre>
+    </article>
+
+    <footer>&copy; 2026 Adi Gabay</footer>
+  </main>
+
+  <script>
+    document.querySelectorAll("[data-bib]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.getElementById(btn.dataset.bib).classList.toggle("open");
+      });
+    });
+  </script>
+</body>
+</html>
