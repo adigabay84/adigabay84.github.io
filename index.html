@@ -9,7 +9,7 @@
   <meta property="og:description" content="M.Sc. student in Computer Science at the Hebrew University of Jerusalem, researching reasoning in large language models.">
   <meta property="og:image" content="https://adigabay84.github.io/images/profile.jpg">
   <meta property="og:url" content="https://adigabay84.github.io/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f5d46'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='600' fill='white' text-anchor='middle'%3EAG%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23a8506e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='600' fill='white' text-anchor='middle'%3EAG%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
@@ -110,29 +110,10 @@
       color: var(--muted);
     }
 
-    /* News */
-    .news { list-style: none; margin: 0; padding: 0; }
-    .news li {
-      display: grid;
-      grid-template-columns: 88px 1fr;
-      gap: 16px;
-      padding: 8px 0;
-    }
-    .news time { color: var(--muted); font-size: 0.9rem; padding-top: 1px; }
-
     /* Publications */
     .pub {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 28px;
       padding: 24px 0;
       border-top: 1px solid var(--border);
-    }
-    .pub-thumb img {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #fff;
     }
     .pub-title {
       font-size: 1.1rem;
@@ -208,12 +189,65 @@
       .intro { grid-template-columns: 1fr; gap: 20px; }
       .intro img { width: 128px; height: 128px; }
       .intro h1 { font-size: 2.1rem; }
-      .pub { grid-template-columns: 1fr; gap: 16px; }
-      .pub-thumb img { max-width: 240px; }
-      .news li { grid-template-columns: 1fr; gap: 0; }
       .entry { grid-template-columns: 1fr; }
       .entry time { grid-row: auto; grid-column: 1; }
     }
+
+    /* Dusty mauve theme */
+  :root {
+  --bg: #faf3f1; --surface: #fffbfa; --text: #21181b; --muted: #6c5a60;
+  --border: #ecd9d7; --chip-bg: #fffbfa; --code-bg: #fbf0ef;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171214; --surface: #221a1d; --text: #f3e9ec; --muted: #b39ea6;
+    --border: #3b2c31; --chip-bg: #2a2024; --code-bg: #1e1719;
+  }
+}
+body { overflow-x: hidden; }
+main { position: relative; z-index: 0; }
+
+/* Header: soft glow, ringed photo, highlighted name — no box */
+header.intro { position: relative; padding: 8px 0; }
+header.intro::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: -70px; right: 60px; top: -70px; bottom: -70px;
+  background: radial-gradient(ellipse 58% 62% at 42% 50%, var(--glow) 0%, var(--glow-mid) 45%, transparent 100%);
+  filter: blur(6px);
+}
+header.intro img {
+  border: 5px solid var(--bg);
+  box-shadow: 0 0 0 3px var(--accent), 0 14px 34px rgba(90, 20, 45, .18);
+}
+header.intro h1 { position: relative; display: inline-block; font-size: 2.9rem; isolation: isolate; }
+header.intro .role { margin-top: 12px; }
+header.intro .links a { border-color: var(--accent-soft); color: var(--accent-strong); background: var(--surface); }
+header.intro .links a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.about { margin-top: 48px; font-size: 1.08rem; }
+.about a { color: var(--accent-strong); border-bottom: 2px solid var(--accent-soft); font-weight: 500; }
+h2 {
+  display: flex; align-items: center; gap: 14px; margin-top: 64px;
+  color: var(--accent); font-size: 0.82rem; letter-spacing: .12em;
+}
+h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.pub {
+  margin-top: 8px; padding: 28px 28px 26px; border: 1px solid var(--border);
+  border-left: 5px solid var(--accent); border-radius: 14px; background: var(--surface);
+  box-shadow: 0 1px 2px rgba(90,20,45,.04), 0 8px 24px rgba(90,20,45,.07);
+}
+.pub-title { font: 600 1.2rem/1.35 "Source Serif 4", Georgia, serif; }
+.venue .tag { background: var(--accent); color: #fff; }
+.actions a, .actions button { background: var(--chip-bg); border-color: var(--border); }
+.actions a:hover, .actions button:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.entry { padding: 14px 0; border-bottom: 1px dashed var(--border); }
+.entry .what { font-weight: 600; }
+@media (max-width: 600px) {
+  header.intro h1 { font-size: 2.2rem; }
+  header.intro::before { left: -40px; right: -40px; top: -50px; bottom: -40px; }
+  .pub { padding: 22px 18px; }
+}
+:root{--accent:#a8506e;--accent-strong:#83334f;--accent-soft:#f0dbe2;--glow:rgba(200,140,165,0.58);--glow-mid:rgba(200,140,165,0.29)}@media (prefers-color-scheme: dark){:root{--accent:#e199b3;--accent-strong:#ebb4c7;--accent-soft:#3a2530;--glow:rgba(225,153,179,0.26);--glow-mid:rgba(225,153,179,0.13)}}
   </style>
 </head>
 <body>
@@ -254,24 +288,9 @@
       </p>
     </section>
 
-    <h2>News</h2>
-    <ul class="news">
-      <li>
-        <time>Oct 2026</time>
-        <span>Our paper <em>Beyond Memorization</em> is out in the EMNLP 2026 Main Conference proceedings.</span>
-      </li>
-      <li>
-        <time>2026</time>
-        <span>Joined the organizing committee of ISCOL 2026, the Israeli Seminar on Computational Linguistics.</span>
-      </li>
-    </ul>
-
     <h2>Publications</h2>
 
     <article class="pub">
-      <a class="pub-thumb" href="https://aclanthology.org/2026.emnlp-main.2119/">
-        <img src="images/beyond-memorization.png" alt="The four benchmark quadrants: classic vs. novel narratives, crossed with symmetric vs. asymmetric inference">
-      </a>
       <div>
         <p class="pub-title">
           <a href="https://aclanthology.org/2026.emnlp-main.2119/">Beyond Memorization: Distinguishing Between Pattern-Based and Epistemic Reasoning in LLMs Using Epistemic Puzzles</a>
