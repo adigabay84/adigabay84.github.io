@@ -135,7 +135,9 @@
       font-size: 0.8rem;
       font-weight: 600;
     }
-    .tldr { margin-top: 10px; font-size: 0.95rem; }
+    .authors a { text-decoration: none; border-bottom: 1px solid var(--border); }
+    .authors a:hover { color: var(--accent); border-color: var(--accent); }
+    .abstract { margin-top: 12px; font-size: 0.92rem; line-height: 1.65; color: var(--muted); }
 
     .actions {
       display: flex;
@@ -279,12 +281,12 @@ h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
         I'm a Master's student in Computer Science at the Hebrew University of Jerusalem and a member of
         the NLP and Databases research labs, advised by
         <a href="https://gabrielstanovsky.github.io/">Prof. Gabriel Stanovsky</a> and
-        Dr. Liat Peterfreund.
+        <a href="https://sites.google.com/view/liatpeterfreund/">Dr. Liat Peterfreund</a>.
       </p>
       <p>
-        My research investigates the reasoning and learning abilities of large language models: when
-        a model solves a problem, is it reasoning from first principles, or mapping the problem onto a
-        familiar structure it has seen before?
+        My research focuses on the reasoning and learning abilities of large language models: how they
+        reason, where they fall short, and how to build evaluations that reveal what they truly
+        understand.
       </p>
     </section>
 
@@ -295,12 +297,19 @@ h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
         <p class="pub-title">
           <a href="https://aclanthology.org/2026.emnlp-main.2119/">Beyond Memorization: Distinguishing Between Pattern-Based and Epistemic Reasoning in LLMs Using Epistemic Puzzles</a>
         </p>
-        <p class="authors"><span class="me">Adi Gabay</span>, Gabriel Stanovsky, Liat Peterfreund</p>
+        <p class="authors"><span class="me">Adi Gabay</span>, <a href="https://gabrielstanovsky.github.io/">Gabriel Stanovsky</a>, <a href="https://sites.google.com/view/liatpeterfreund/">Liat Peterfreund</a></p>
         <p class="venue"><span class="tag">EMNLP 2026</span>Main Conference</p>
-        <p class="tldr">
-          We reframe memorization as pattern-based reasoning and use progressively modified epistemic
-          logic puzzles to show that frontier models' strong performance comes largely from reducing
-          problems to puzzles they already know.
+        <p class="abstract">
+          Epistemic reasoning requires agents to infer the state of the world from partial observations
+          and information about other agents’ knowledge. Prior work evaluating LLMs on epistemic puzzles
+          often frames failures as memorization rather than reasoning. We argue that this dichotomy is too
+          coarse for newer models: memorization is a limiting case of pattern-based reasoning, where a
+          model matches a task to a familiar template and applies the corresponding solution. We introduce
+          a two-dimensional benchmark over Dynamic Epistemic Logic (DEL) puzzles, separating narrative
+          familiarity from inference complexity, which allows us to distinguish pattern-based from
+          epistemic reasoning. We find that models are substantially more robust to surface form changes
+          than prior work suggested, yet consistently struggle in asymmetric settings where familiar
+          patterns no longer apply and success requires tracking fragmented epistemic states.
         </p>
         <div class="actions">
           <a href="https://aclanthology.org/2026.emnlp-main.2119/">ACL</a>
