@@ -131,7 +131,7 @@
     }
     .authors a { text-decoration: none; border-bottom: 1px solid var(--border); }
     .authors a:hover { color: var(--accent); border-color: var(--accent); }
-    .abstract { margin-top: 12px; font-size: 0.92rem; line-height: 1.65; color: var(--muted); }
+    .abstract { display: none; margin-top: 14px; font-size: 0.92rem; line-height: 1.65; color: var(--muted); }
 
     .actions {
       display: flex;
@@ -161,7 +161,8 @@
       border-radius: 8px;
       font: 0.78rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
     }
-    pre.bibtex.open { display: block; }
+    pre.bibtex.open, .abstract.open { display: block; }
+    .actions button[aria-expanded="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
 
     /* Education & service */
     .entry {
@@ -281,7 +282,15 @@ h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
         </p>
         <p class="authors"><span class="me">Adi Gabay</span>, <a href="https://gabrielstanovsky.github.io/">Gabriel Stanovsky</a>, <a href="https://sites.google.com/view/liatpeterfreund/">Liat Peterfreund</a></p>
         <p class="venue"><span class="tag">EMNLP 2026</span>Main Conference</p>
-        <p class="abstract">
+        <div class="actions">
+          <a href="https://aclanthology.org/2026.emnlp-main.2119/">ACL</a>
+          <a href="https://aclanthology.org/2026.emnlp-main.2119.pdf">PDF</a>
+          <a href="https://arxiv.org/abs/2603.21350">arXiv</a>
+          <a href="https://github.com/adigabay84/del-puzzles-benchmark">Code</a>
+          <button type="button" data-toggle="abs-gabay2026" aria-expanded="false">Abstract</button>
+          <button type="button" data-toggle="bib-gabay2026" aria-expanded="false">BibTeX</button>
+        </div>
+        <p class="abstract" id="abs-gabay2026">
           Epistemic reasoning requires agents to infer the state of the world from partial observations
           and information about other agents’ knowledge. Prior work evaluating LLMs on epistemic puzzles
           often frames failures as memorization rather than reasoning. We argue that this dichotomy is too
@@ -293,13 +302,6 @@ h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
           than prior work suggested, yet consistently struggle in asymmetric settings where familiar
           patterns no longer apply and success requires tracking fragmented epistemic states.
         </p>
-        <div class="actions">
-          <a href="https://aclanthology.org/2026.emnlp-main.2119/">ACL</a>
-          <a href="https://aclanthology.org/2026.emnlp-main.2119.pdf">PDF</a>
-          <a href="https://arxiv.org/abs/2603.21350">arXiv</a>
-          <a href="https://github.com/adigabay84/del-puzzles-benchmark">Code</a>
-          <button type="button" data-bib="bib-gabay2026">BibTeX</button>
-        </div>
 <pre class="bibtex" id="bib-gabay2026">@inproceedings{gabay-etal-2026-beyond,
     title = "Beyond Memorization: Distinguishing Between Pattern-Based and Epistemic Reasoning in {LLM}s Using Epistemic Puzzles",
     author = "Gabay, Adi  and
@@ -339,9 +341,10 @@ h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
   </main>
 
   <script>
-    document.querySelectorAll("[data-bib]").forEach(function (btn) {
+    document.querySelectorAll("[data-toggle]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        document.getElementById(btn.dataset.bib).classList.toggle("open");
+        var open = document.getElementById(btn.dataset.toggle).classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
       });
     });
   </script>
