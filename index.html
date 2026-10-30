@@ -4,29 +4,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adi Gabay</title>
-  <meta name="description" content="Publications by Adi Gabay.">
+  <meta name="description" content="Adi Gabay — M.Sc. student in Computer Science at the Hebrew University of Jerusalem, researching reasoning in large language models.">
+  <meta property="og:title" content="Adi Gabay">
+  <meta property="og:description" content="M.Sc. student in Computer Science at the Hebrew University of Jerusalem, researching reasoning in large language models.">
+  <meta property="og:image" content="https://adigabay84.github.io/images/profile.jpg">
+  <meta property="og:url" content="https://adigabay84.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f5d46'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='600' fill='white' text-anchor='middle'%3EAG%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fbfbfa;
+      --bg: #fbfbf8;
       --text: #1d1d1f;
-      --muted: #6b6b70;
-      --border: #e4e4e2;
-      --accent: #b3261e;
-      --chip-bg: #f1f1ef;
-      --code-bg: #f4f4f2;
+      --muted: #67676c;
+      --border: #e3e3de;
+      --accent: #2f5d46;
+      --accent-soft: #e8efe9;
+      --chip-bg: #f1f1ec;
+      --code-bg: #f4f4ef;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #161618;
-        --text: #ececec;
-        --muted: #9a9aa0;
-        --border: #2c2c30;
-        --accent: #ff7a6e;
-        --chip-bg: #232327;
-        --code-bg: #1e1e21;
+        --bg: #151716;
+        --text: #ececea;
+        --muted: #9a9c99;
+        --border: #2b2e2c;
+        --accent: #8cc4a4;
+        --accent-soft: #1f2a24;
+        --chip-bg: #222523;
+        --code-bg: #1c1f1d;
       }
     }
 
@@ -35,35 +42,67 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font: 16px/1.6 Inter, system-ui, -apple-system, sans-serif;
+      font: 16px/1.65 Inter, system-ui, -apple-system, sans-serif;
     }
     main {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       padding: 72px 16px 96px;
     }
     a { color: inherit; }
+    p { margin: 0; }
 
-    header h1 {
+    /* Intro */
+    .intro {
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .intro img {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-soft);
+    }
+    .intro h1 {
       margin: 0;
-      font: 600 2.4rem/1.15 "Source Serif 4", Georgia, serif;
+      font: 600 2.5rem/1.1 "Source Serif 4", Georgia, serif;
       letter-spacing: -0.01em;
     }
+    .role { margin-top: 8px; color: var(--muted); }
     .links {
       display: flex;
-      gap: 18px;
-      margin-top: 14px;
-      font-size: 0.95rem;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
     }
     .links a {
-      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      border-bottom: 1px solid var(--border);
     }
-    .links a:hover { color: var(--text); border-color: var(--text); }
+    .links a:hover { border-color: var(--accent); color: var(--accent); }
+    .links svg { width: 15px; height: 15px; fill: currentColor; }
+
+    .about { margin-top: 40px; font-size: 1.05rem; }
+    .about p + p { margin-top: 14px; }
+    .about a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-soft);
+    }
+    .about a:hover { border-color: var(--accent); }
 
     h2 {
-      margin: 64px 0 8px;
+      margin: 64px 0 12px;
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.08em;
@@ -71,26 +110,51 @@
       color: var(--muted);
     }
 
+    /* News */
+    .news { list-style: none; margin: 0; padding: 0; }
+    .news li {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 16px;
+      padding: 8px 0;
+    }
+    .news time { color: var(--muted); font-size: 0.9rem; padding-top: 1px; }
+
+    /* Publications */
     .pub {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
       padding: 24px 0;
       border-top: 1px solid var(--border);
     }
+    .pub-thumb img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
     .pub-title {
-      margin: 0;
       font-size: 1.1rem;
       font-weight: 600;
       line-height: 1.4;
     }
     .pub-title a { text-decoration: none; }
     .pub-title a:hover { text-decoration: underline; }
-    .authors { margin: 6px 0 0; color: var(--muted); }
+    .authors { margin-top: 6px; color: var(--muted); }
     .authors .me { color: var(--text); font-weight: 500; }
-    .venue { margin: 2px 0 0; font-style: italic; color: var(--muted); }
+    .venue { margin-top: 2px; color: var(--muted); }
     .venue .tag {
-      font-style: normal;
-      font-weight: 600;
+      display: inline-block;
+      padding: 1px 8px;
+      margin-right: 6px;
+      border-radius: 4px;
+      background: var(--accent-soft);
       color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
     }
+    .tldr { margin-top: 10px; font-size: 0.95rem; }
 
     .actions {
       display: flex;
@@ -108,7 +172,7 @@
       text-decoration: none;
       cursor: pointer;
     }
-    .actions a:hover, .actions button:hover { border-color: var(--muted); }
+    .actions a:hover, .actions button:hover { border-color: var(--accent); color: var(--accent); }
 
     pre.bibtex {
       display: none;
@@ -118,46 +182,114 @@
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      font: 0.8rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      font: 0.78rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
     }
     pre.bibtex.open { display: block; }
 
+    /* Education & service */
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 16px;
+      padding: 10px 0;
+    }
+    .entry .what { font-weight: 500; }
+    .entry .where { color: var(--muted); grid-column: 1; }
+    .entry time { color: var(--muted); font-size: 0.9rem; grid-row: 1; grid-column: 2; }
+
     footer {
-      margin-top: 64px;
+      margin-top: 72px;
       font-size: 0.85rem;
       color: var(--muted);
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
       main { padding-top: 48px; }
-      header h1 { font-size: 2rem; }
+      .intro { grid-template-columns: 1fr; gap: 20px; }
+      .intro img { width: 128px; height: 128px; }
+      .intro h1 { font-size: 2.1rem; }
+      .pub { grid-template-columns: 1fr; gap: 16px; }
+      .pub-thumb img { max-width: 240px; }
+      .news li { grid-template-columns: 1fr; gap: 0; }
+      .entry { grid-template-columns: 1fr; }
+      .entry time { grid-row: auto; grid-column: 1; }
     }
   </style>
 </head>
 <body>
   <main>
-    <header>
-      <h1>Adi Gabay</h1>
-      <nav class="links">
-        <a href="https://github.com/adigabay84">GitHub</a>
-      </nav>
+    <header class="intro">
+      <img src="images/profile.jpg" alt="Adi Gabay">
+      <div>
+        <h1>Adi Gabay</h1>
+        <p class="role">M.Sc. student in Computer Science<br>The Hebrew University of Jerusalem</p>
+        <nav class="links">
+          <a href="mailto:adi.gabay1@mail.huji.ac.il">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5.6-8-5.6zM5.2 7 12 11.8 18.8 7H5.2z"/></svg>
+            Email
+          </a>
+          <a href="https://www.linkedin.com/in/adi-gabay-a30328313/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/adigabay84">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+            GitHub
+          </a>
+        </nav>
+      </div>
     </header>
+
+    <section class="about">
+      <p>
+        I'm a Master's student in Computer Science at the Hebrew University of Jerusalem and a member of
+        the NLP and Databases research labs, advised by
+        <a href="https://gabrielstanovsky.github.io/">Prof. Gabriel Stanovsky</a> and
+        Dr. Liat Peterfreund.
+      </p>
+      <p>
+        My research investigates the reasoning and learning abilities of large language models: when
+        a model solves a problem, is it reasoning from first principles, or mapping the problem onto a
+        familiar structure it has seen before?
+      </p>
+    </section>
+
+    <h2>News</h2>
+    <ul class="news">
+      <li>
+        <time>Oct 2026</time>
+        <span>Our paper <em>Beyond Memorization</em> is out in the EMNLP 2026 Main Conference proceedings.</span>
+      </li>
+      <li>
+        <time>2026</time>
+        <span>Joined the organizing committee of ISCOL 2026, the Israeli Seminar on Computational Linguistics.</span>
+      </li>
+    </ul>
 
     <h2>Publications</h2>
 
     <article class="pub">
-      <p class="pub-title">
-        <a href="https://aclanthology.org/2026.emnlp-main.2119/">Beyond Memorization: Distinguishing Between Pattern-Based and Epistemic Reasoning in LLMs Using Epistemic Puzzles</a>
-      </p>
-      <p class="authors"><span class="me">Adi Gabay</span>, Gabriel Stanovsky, Liat Peterfreund</p>
-      <p class="venue"><span class="tag">EMNLP 2026</span> &middot; Main Conference</p>
-      <div class="actions">
-        <a href="https://aclanthology.org/2026.emnlp-main.2119/">ACL</a>
-        <a href="https://aclanthology.org/2026.emnlp-main.2119.pdf">PDF</a>
-        <a href="https://arxiv.org/abs/2603.21350">arXiv</a>
-        <a href="https://github.com/adigabay84/del-puzzles-benchmark">Code</a>
-        <button type="button" data-bib="bib-gabay2026">BibTeX</button>
-      </div>
+      <a class="pub-thumb" href="https://aclanthology.org/2026.emnlp-main.2119/">
+        <img src="images/beyond-memorization.png" alt="The four benchmark quadrants: classic vs. novel narratives, crossed with symmetric vs. asymmetric inference">
+      </a>
+      <div>
+        <p class="pub-title">
+          <a href="https://aclanthology.org/2026.emnlp-main.2119/">Beyond Memorization: Distinguishing Between Pattern-Based and Epistemic Reasoning in LLMs Using Epistemic Puzzles</a>
+        </p>
+        <p class="authors"><span class="me">Adi Gabay</span>, Gabriel Stanovsky, Liat Peterfreund</p>
+        <p class="venue"><span class="tag">EMNLP 2026</span>Main Conference</p>
+        <p class="tldr">
+          We reframe memorization as pattern-based reasoning and use progressively modified epistemic
+          logic puzzles to show that frontier models' strong performance comes largely from reducing
+          problems to puzzles they already know.
+        </p>
+        <div class="actions">
+          <a href="https://aclanthology.org/2026.emnlp-main.2119/">ACL</a>
+          <a href="https://aclanthology.org/2026.emnlp-main.2119.pdf">PDF</a>
+          <a href="https://arxiv.org/abs/2603.21350">arXiv</a>
+          <a href="https://github.com/adigabay84/del-puzzles-benchmark">Code</a>
+          <button type="button" data-bib="bib-gabay2026">BibTeX</button>
+        </div>
 <pre class="bibtex" id="bib-gabay2026">@inproceedings{gabay-etal-2026-beyond,
     title = "Beyond Memorization: Distinguishing Between Pattern-Based and Epistemic Reasoning in {LLM}s Using Epistemic Puzzles",
     author = "Gabay, Adi  and
@@ -171,7 +303,27 @@
     url = "https://aclanthology.org/2026.emnlp-main.2119/",
     pages = "48199--48218"
 }</pre>
+      </div>
     </article>
+
+    <h2>Education</h2>
+    <div class="entry">
+      <span class="what">M.Sc. in Computer Science</span>
+      <span class="where">The Hebrew University of Jerusalem</span>
+      <time>2026 – present</time>
+    </div>
+    <div class="entry">
+      <span class="what">B.Sc. in Computer Science</span>
+      <span class="where">The Hebrew University of Jerusalem</span>
+      <time>2022 – 2026</time>
+    </div>
+
+    <h2>Service</h2>
+    <div class="entry">
+      <span class="what">Organizing Committee, ISCOL 2026</span>
+      <span class="where">Israeli Seminar on Computational Linguistics</span>
+      <time>2026</time>
+    </div>
 
     <footer>&copy; 2026 Adi Gabay</footer>
   </main>
